@@ -2,7 +2,7 @@
 # -*- charset: utf-8 -*-
 
 #
-# Name:    PySide base template
+# Name:    PySide menu template
 # Licence: MIT   
 #
 # Copyright (C) 2012 Miklos Nemeth Szabo, Synthoid Software
@@ -37,6 +37,16 @@ class MainWindow(QMainWindow):
         
         # Resize the window
         self.resize(800, 600)
+        
+        self.createActions()
+        self.createMenus()
+        
+    def createActions(self):
+        self.actExit = QAction("&Exit", self, triggered=self.close)
+    
+    def createMenus(self):
+        self.menuFile = self.menuBar().addMenu("&File")
+        self.menuFile.addAction(self.actExit)
 
 # c like main()
 if __name__ == '__main__':
